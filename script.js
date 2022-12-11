@@ -78,7 +78,6 @@ function displayQuestion() {
 
         optionButton.addEventListener('click', optionClicked)
         questionContainer.appendChild(optionButton)
-       // questionContainer.innerHTML += "<br>"
 
         optionButton.setAttribute('style','background-color:#FF69B4; color: white; padding: 5px; margin-left')
     }
