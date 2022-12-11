@@ -2,6 +2,7 @@
 var questionContainer = document.getElementById("questions");
 var landingContainer = document.getElementById("landing");
 var timeEl = document.getElementById("time");
+var endingContainer = document.getElementById("endpage")
 
 var questions = [
     {
@@ -30,9 +31,8 @@ var currectQuesIndex;
 
 var secondsLeft = 30;
 
-function startTimer() { //when i start on quiz, i start timer
-
-    
+function startTimer() { 
+//when i start on quiz, i start timer   
     var timeInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft + 'seconds remaining';
@@ -46,9 +46,11 @@ function startTimer() { //when i start on quiz, i start timer
     },1000);
 }
 
+
 function sendMessage() {
     timeEl.textContent = "";
 }
+
 
 function startQuiz () { 
     // hide landing page
@@ -79,14 +81,11 @@ function displayQuestion() {
 
         optionButton.setAttribute('style','background-color:#FF69B4; color: white; padding: 5px; margin-left')
     }
-
-    // append/add to html ^ 
-
 }
 
 function optionClicked(event) {
      //check correct or not 
-     //check if last question
+     //check if it is last question
     var correct = questions[currectQuesIndex].correctAns
 
     var userClicked = event.target.textContent
@@ -105,12 +104,21 @@ function optionClicked(event) {
 
 
 function endQuiz(){
+    //hide question page
+    questionContainer.classList.add("hidden");
+    endingContainer.classList.remove("hidden");
+    //timer needs to be 0 when it hits last question
+    timeEl=0;
+    displayEndContent()
+}
 
-    // final score is ___
+function displayEndContent(){ // show the endquiz content 
+      // final score is ___
+      var finalScore = document.createElement('h2')
+    finalScore.textContent= 
+
     // enter initials: local storage - link to high score list 
-    //
+
 }
 
 document.getElementById("startQuiz").addEventListener('click', startQuiz)
-
-
