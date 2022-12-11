@@ -25,13 +25,16 @@ var questions = [
     },
 ]
 
+// creating my options in ol, li
+
 var currectQuesIndex;
 
 function startTimer() {
-    
+    //timer interval - timer called when the start button is click
+
 }
 
-function startQuiz () {
+function startQuiz () { 
     // hide landing page
     landingContainer.classList.add("hidden");
     questionContainer.classList.remove("hidden");
@@ -48,23 +51,27 @@ function displayQuestion() {
     title.textContent = questions[currectQuesIndex].title
     // display question options
     questionContainer.appendChild(title)
-
+ 
     for (let index = 0; index < questions[currectQuesIndex].options.length; index++) {
         var optionButton = document.createElement('button')
         optionButton.textContent = questions[currectQuesIndex].options[index]
 
         optionButton.addEventListener('click', optionClicked)
         questionContainer.appendChild(optionButton)
+
+        optionButton.setAttribute('style','background-color:#FF69B4; color: white; padding: 5px; margin-left')
     }
 
-    // append/add to html
+    // append/add to html ^ 
+    //add attributes to the options - with color and font ??
+
 
 
 }
 
 function optionClicked(event) {
-    // check correct or not
-    // check if last question
+     //check correct or not
+     //check if last question
     var correct = questions[currectQuesIndex].correctAns
 
     var userClicked = event.target.textContent
@@ -72,8 +79,8 @@ function optionClicked(event) {
     if(userClicked === correct) {
         console.log("correct")
     }
-    else {
-        console.log("wrong")
+    else { // prompt - wrong 
+      console.log("wrong") 
     }
 
     currectQuesIndex++;
@@ -83,6 +90,11 @@ function optionClicked(event) {
 
 function endQuiz(){
 
+    // final score is ___
+    // enter initials: local storage - link to high score list 
+    //
 }
 
 document.getElementById("startQuiz").addEventListener('click', startQuiz)
+
+
