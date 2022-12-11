@@ -1,6 +1,7 @@
 // variables
 var questionContainer = document.getElementById("questions");
 var landingContainer = document.getElementById("landing");
+var timeEl = document.getElementById("time");
 
 var questions = [
     {
@@ -13,26 +14,43 @@ var questions = [
         options: ['option1', 'option2', 'option3', 'js'],
         correctAns: 'js'
     },
-    {
+    { 
         title: "Question 3", 
         options: ['option1', 'option2', 'option3', 'functions are good'],
         correctAns: 'functions are good'
-    },
+    }, 
     {
         title: "Question 4", 
         options: ['option1', 'option2', 'option3'],
         correctAns: 'option1'
-    },
+    }
 ]
-
-// creating my options in ol, li
-
+ 
 var currectQuesIndex;
 
-function startTimer() {
-    //timer interval - timer called when the start button is click
+var secondsLeft = 30;
+
+function startTimer() { //when i start on quiz, i start timer
+
+    
+    var timeInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + 'seconds remaining';
+
+        if(secondsLeft === 0){
+            clearInterval(timeInterval);
+            sendMessage();
+        }
+       
+      
+    },1000);
+}
+
+function sendMessage() {
+    timeEl.textContent = "";
 
 }
+
 
 function startQuiz () { 
     // hide landing page
@@ -56,8 +74,11 @@ function displayQuestion() {
         var optionButton = document.createElement('button')
         optionButton.textContent = questions[currectQuesIndex].options[index]
 
+          // append/add to html ^ 
+
         optionButton.addEventListener('click', optionClicked)
         questionContainer.appendChild(optionButton)
+       // questionContainer.innerHTML += "<br>"
 
         optionButton.setAttribute('style','background-color:#FF69B4; color: white; padding: 5px; margin-left')
     }
@@ -76,13 +97,14 @@ function optionClicked(event) {
     if(userClicked === correct) {
         console.log("correct")
     }
-    else { // prompt - wrong 
+    else (userClicked != correct)  {
       console.log("wrong") 
     }
 
     currectQuesIndex++;
     displayQuestion()
 }
+
 
 
 function endQuiz(){
