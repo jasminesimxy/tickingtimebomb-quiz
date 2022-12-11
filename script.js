@@ -88,7 +88,7 @@ function displayQuestion() {
 }
 
 function optionClicked(event) {
-     //check correct or not
+     //check correct or not 
      //check if last question
     var correct = questions[currectQuesIndex].correctAns
 
@@ -97,14 +97,14 @@ function optionClicked(event) {
     if(userClicked === correct) {
         console.log("correct")
     }
-    else (userClicked != correct)  {
-      console.log("wrong") 
+    else if (userClicked != correct) {
+      console.log("wrong")
+      secondsLeft = secondsLeft - 5
     }
-
+    
     currectQuesIndex++;
     displayQuestion()
 }
-
 
 
 function endQuiz(){
