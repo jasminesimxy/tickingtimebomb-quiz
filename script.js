@@ -63,9 +63,6 @@ function displayQuestion() {
     }
 
     // append/add to html ^ 
-    //add attributes to the options - with color and font ??
-
-
 
 }
 
