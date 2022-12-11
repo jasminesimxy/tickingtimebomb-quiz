@@ -10,6 +10,7 @@ var questions = [
         options: ['option1', 'option2', 'option3', 'abc'],
         correctAns: 'option1'
     },
+
     {
         title: "Question 2", 
         options: ['option1', 'option2', 'option3', 'js'],
@@ -33,22 +34,22 @@ var secondsLeft = 30;
 
 function startTimer() { 
 //when i start on quiz, i start timer   
+     //check if it is last question by comparing my index with my length -1 b/c index != to length and you want it to be true for the if statement so you send the mesasge of (0 seconds)
     var timeInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft + 'seconds remaining';
 
-        if(secondsLeft === 0){
+        if((secondsLeft === 0) || (currectQuesIndex === questions.length -1)){
             clearInterval(timeInterval);
             sendMessage();
         }
        
-      
     },1000);
 }
 
 
 function sendMessage() {
-    timeEl.textContent = "";
+    timeEl.textContent = "0";
 }
 
 
@@ -85,7 +86,7 @@ function displayQuestion() {
 
 function optionClicked(event) {
      //check correct or not 
-     //check if it is last question
+
     var correct = questions[currectQuesIndex].correctAns
 
     var userClicked = event.target.textContent
@@ -104,21 +105,7 @@ function optionClicked(event) {
 
 
 function endQuiz(){
-    //hide question page
-    questionContainer.classList.add("hidden");
-    endingContainer.classList.remove("hidden");
-    //timer needs to be 0 when it hits last question
-    timeEl=0;
-    displayEndContent()
 }
-
-function displayEndContent(){ // show the endquiz content 
-      // final score is ___
-      var finalScore = document.createElement('h2')
-    finalScore.textContent= 
-
-    // enter initials: local storage - link to high score list 
-
-}
+    
 
 document.getElementById("startQuiz").addEventListener('click', startQuiz)
