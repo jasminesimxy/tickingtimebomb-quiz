@@ -48,16 +48,14 @@ function startTimer() { //when i start on quiz, i start timer
 
 function sendMessage() {
     timeEl.textContent = "";
-
 }
-
 
 function startQuiz () { 
     // hide landing page
     landingContainer.classList.add("hidden");
     questionContainer.classList.remove("hidden");
     // show first question
-
+    startTimer()
     currectQuesIndex = 0;
     displayQuestion()
 }
