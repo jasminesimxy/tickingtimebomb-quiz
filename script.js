@@ -3,8 +3,9 @@ var questionContainer = document.getElementById("questions");
 var landingContainer = document.getElementById("landing");
 var timeEl = document.getElementById("time");
 var endingContainer = document.getElementById("endpage");
-var submitInitialContainer =document.querySelector("#saveInitials");
-var messageContainer = document.querySelector("#message");
+var submitContainer = document.getElementById("submit");
+var highscoreContainer =document.getElementById("highscorepage");
+
 
 
 
@@ -54,7 +55,6 @@ function startTimer() {
 
 function sendMessage() {
     timeEl.textContent = "0";
-
 }
 
 
@@ -109,56 +109,65 @@ function optionClicked(event) {
 }
 
 
+
+
 function endQuiz(){
-     // hide question page
+     // hide question page , show new ending enq quiz
      questionContainer.classList.add("hidden");
      endingContainer.classList.remove("hidden");
 
-     renderedLastRegistered (); // this is in the highscore page
+     renderedLastRegistered();
+     displayInitialSubmission();
 }
 
-
-
-function DisplayMessage(type,message) {
-    messageContainer.textContent = message;
-    messageContainer.setAttribute("class",type);
-
-    var lastInitials;
-}
-
-function renderedLastRegistered () {
-    var initialsContainer= localStorage.getItem("initials");
+function renderedLastRegistered (){
+    var initials =localStorage.getItem("initials");
 
     if (!initials) {
         return;
     }
-userInitialsSpan.textContent = initials;
+
+    userInitials.textContent= initials;
+}
+
+function displayInitialSubmission(){
+    endingContainer.innerHTML =''
+    var endScore = document.createElement('p')
+    //show score 
+  endingContainer.appendChild(score)
+
+  submitContainer.addEventListener("click" ,function(event){
+    event.preventDefault();
+
+    var initials= document.getElementById("initials").value;
+// must type initials or else - message
+    if (initials === "") {
+        displayMessage("error","Please enter your initials");
+    } else {
+            displayMessage("Woohoo", "Saved succesfully");
+            
+            localStorage.setItem("initials",initials);
+            renderedLastRegistered();
+    
+    }
+});
+     
 
 }
-    
-     submitInitialContainer.addEventListener("click" , function(event) {
-        event.preventDefault();
 
-        var initialsContainer = document.querySelector("#initials").value;
-
-        if (initials === "") {
-            displayMessage("Error","Initials can't be blank. Please enter your initials");
-        } else {
-            displayMessage("Woohoo","Thank you for entering your initials");
-
-            lastInitials = initials;
+//another page - highscore page ith local storage of  render last registered
+function highscoreList(){ //hide ending container , show highscore page when click??
+    endingContainer.classList.add("hidden");
+    highscoreContainer.classList.remove("hidden");
 
 
-            localStorage.setItem("intials", initials);
-            renderedLastRegistered();
 
-             // save initials to localStorage and render the last registered initials onto highscore page
+}
 
-        }
 
-       
-     });
 
-    
+
+
+
 
 document.getElementById("startQuiz").addEventListener('click', startQuiz)
