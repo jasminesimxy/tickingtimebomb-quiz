@@ -124,6 +124,8 @@ function endQuiz(){
      displayInitialSubmission();
 }
 
+var lastInitials;
+
 function renderedLastRegistered (){
     var initials =localStorage.getItem("initials");
 
@@ -146,9 +148,11 @@ function displayInitialSubmission(){
     var initials= document.getElementById("initials").value;
 // must type initials or else - message
     if (initials === "") {
-        displayMessage("error","Please enter your initials");
+        prompt("error","Please enter your initials");
     } else {
-            displayMessage("Woohoo", "Saved succesfully");
+           prompt("Woohoo", "Saved succesfully");
+
+            lastInitials=initials;
             
             localStorage.setItem("initials",initials);
             renderedLastRegistered();
