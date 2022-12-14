@@ -137,9 +137,9 @@ function renderedLastRegistered (){
 function displayInitialSubmission(){
     endingContainer.innerHTML =''
     var endScore = document.createElement('p');
-    //show score 
-  endingContainer.appendChild(score);
+    //show score?? 
 
+    
   submitContainer.addEventListener("click" ,function(event){
     event.preventDefault();
 
@@ -158,16 +158,6 @@ function displayInitialSubmission(){
      
 
 }
-
-//another page - highscore page ith local storage of  render last registered
-function highscoreList(){ //hide ending container , show highscore page when click??
-    endingContainer.classList.add("hidden");
-    highscoreContainer.classList.remove("hidden");
-
-
-
-}
-
 
 
 
