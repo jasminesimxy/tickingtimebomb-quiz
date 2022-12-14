@@ -104,11 +104,14 @@ function optionClicked(event) {
       secondsLeft = secondsLeft - 5
     }
     
-    currectQuesIndex++;
-    displayQuestion()
+    if(currectQuesIndex < questions.length-1){
+        currectQuesIndex++;
+        displayQuestion()
+    } else {
+        endQuiz();
+    }
+    
 }
-
-
 
 
 function endQuiz(){
