@@ -4,12 +4,8 @@ var landingContainer = document.getElementById("landing");
 var timeEl = document.getElementById("time");
 var endingContainer = document.getElementById("endpage");
 var submitContainer = document.getElementById("submit");
-var highscoreContainer =document.getElementById("highscorepage");
 
-
-
-
-
+//questions with options
 var questions = [
     {
         title: "Question 1", 
