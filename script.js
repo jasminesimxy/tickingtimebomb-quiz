@@ -116,6 +116,7 @@ function optionClicked(event) {
 
 function endQuiz(){
      // hide question page , show new ending enq quiz
+     landingContainer.classList.add("hidden");
      questionContainer.classList.add("hidden");
      endingContainer.classList.remove("hidden");
 
@@ -135,9 +136,9 @@ function renderedLastRegistered (){
 
 function displayInitialSubmission(){
     endingContainer.innerHTML =''
-    var endScore = document.createElement('p')
+    var endScore = document.createElement('p');
     //show score 
-  endingContainer.appendChild(score)
+  endingContainer.appendChild(score);
 
   submitContainer.addEventListener("click" ,function(event){
     event.preventDefault();
