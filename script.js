@@ -2,7 +2,12 @@
 var questionContainer = document.getElementById("questions");
 var landingContainer = document.getElementById("landing");
 var timeEl = document.getElementById("time");
-var endingContainer = document.getElementById("endpage")
+var endingContainer = document.getElementById("endpage");
+var submitInitialContainer =document.querySelector("#saveInitials");
+var messageContainer = document.querySelector("#message");
+
+
+
 
 var questions = [
     {
@@ -47,9 +52,9 @@ function startTimer() {
     },1000);
 }
 
-
 function sendMessage() {
     timeEl.textContent = "0";
+
 }
 
 
@@ -105,7 +110,51 @@ function optionClicked(event) {
 
 
 function endQuiz(){
+     // hide question page
+     questionContainer.classList.add("hidden");
+     endingContainer.classList.remove("hidden");
+
+     renderedLastRegistered (); // this is in the highscore page
 }
+
+
+
+function DisplayMessage(type,message) {
+    messageContainer.textContent = message;
+    messageContainer.setAttribute("class",type);
+
+}
+
+function renderedLastRegistered () {
+    var initialsContainer= localStorage.getItem("initials");
+
+    if (!initials) {
+        return;
+    }
+userInitialsSpan.textContent = initials;
+
+}
+    
+     submitInitialContainer.addEventListener("click" , function(event) {
+        event.preventDefault();
+
+        var initialsContainer = document.querySelector("#initials").value;
+
+        if (initials === "") {
+            displayMessage("Error","Initials can't be blank. Please enter your initials");
+        } else {
+            displayMessage("Woohoo","Thank you for entering your initials");
+
+
+            localStorage.setItem("intials", initials);
+
+             // save initials to localStorage and render the last registered initials onto highscore page
+
+        }
+
+       
+     });
+
     
 
 document.getElementById("startQuiz").addEventListener('click', startQuiz)
