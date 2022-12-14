@@ -123,6 +123,7 @@ function DisplayMessage(type,message) {
     messageContainer.textContent = message;
     messageContainer.setAttribute("class",type);
 
+    var lastInitials;
 }
 
 function renderedLastRegistered () {
@@ -145,8 +146,11 @@ userInitialsSpan.textContent = initials;
         } else {
             displayMessage("Woohoo","Thank you for entering your initials");
 
+            lastInitials = initials;
+
 
             localStorage.setItem("intials", initials);
+            renderedLastRegistered();
 
              // save initials to localStorage and render the last registered initials onto highscore page
 
