@@ -132,19 +132,19 @@ function endQuiz(){
 submitContainer.addEventListener("click", function(event) {
     event.preventDefault();
 
-var scoreHistory = {
+var scoreKeys = {
     initials: initialsInput.value,
     score: scoreInput.value,
 };
 
-localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+localStorage.setItem("scoreHistory", scoreKeys);
 });
 
-
+ 
 
 // store history in local storage??
 function renderLastUserInput(){
-    var UserInput =JSON.parse(localStorage.getItem("scoreHistory"));
+    var UserInput =JSON.parse(scoreHistory);
     if (UserInput != null ) {
         initialsInput.innerHTML = UserInput.initials;
         scoreInput.innerHTML =UserInput.score;
