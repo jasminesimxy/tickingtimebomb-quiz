@@ -124,8 +124,8 @@ function endQuiz(){
 
 
 //local storage save iniitials to highscore list?
-     document.getElementById("initials").innerHTML = " "; // to clear textContent
-     document.getElementById("initials").innerHTML = " "<div></div> //to append
+     //document.getElementById("initials").innerHTML = " "; // to clear textContent
+     //document.getElementById("initials").innerHTML = " "<div></div> //to append
 
 
 
