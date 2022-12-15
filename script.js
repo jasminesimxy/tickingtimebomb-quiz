@@ -122,10 +122,17 @@ function endQuiz(){
      }
 }
 
+//local storage 
+// 
+const scordArr = ///JSON. relocalStorage.getItem("scoreHistory")
+scordArr = []; //if statement..
 
-//local storage save iniitials to highscore list?
-     //document.getElementById("initials").innerHTML = " "; // to clear textContent
-     //document.getElementById("initials").innerHTML = " "<div></div> //to append
+scordArr.push({lastInitials:"", score:""})
+
+localStorage.setItem("scoreHistory", JSON.stringify(arr))
+
+
+
 
 
 
