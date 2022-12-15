@@ -7,7 +7,7 @@ var submitContainer = document.getElementById("submit");
 var initialsInput =document.getElementById("initials");
 var scoreInput = document.getElementById("score");
 
-var scoreHistory = localStorage.getItem("scoreHistory") || [];
+var scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || [];
 
 //questions with options
 var questions = [
@@ -140,7 +140,7 @@ scoreHistory.push(scoreKeys)//push scorekeys object into scoreHistory array
 localStorage.setItem("scoreHistory", scoreHistory);
 });
 
- 
+console.log(scoreHistory);
 
 // store history in local storage??
 function renderLastUserInput(){
