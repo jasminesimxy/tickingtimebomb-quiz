@@ -129,22 +129,22 @@ function endQuiz(){
 
 submitContainer.addEventListener("click", function(event) {
     event.preventDefault();
-});
 
-
-var scoreHistory = [
-        initialsArr = initialsInput.value,
-        scoreArr = scoreInput.value
-];
+var scoreHistory = {
+    initials: initialsInput.value,
+    score: scoreInput.value
+};
 
 localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+});
+
 
 
 function renderLastUserInput(){
     var UserInput =JSON.parse(localStorage.getItem("scoreHistory"));
     if (UserInput != null ) {
-        initialsInput.innerHTML = UserInput.initialsArr;
-        scoresInput.innerHTML =UserInput.scoreArr;
+        initialsInput.innerHTML = UserInput.initials;
+        scoresInput.innerHTML =UserInput.score;
     }
     else { // if user is the first user to submit initials then this would happen
         scoreHistory=[]; 
