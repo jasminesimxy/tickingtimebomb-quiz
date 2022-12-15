@@ -32,7 +32,7 @@ var questions = [
  
 var currectQuesIndex;
 
-var secondsLeft = 30;
+var secondsLeft = 90;
 
 function startTimer() { 
 //when i start on quiz, i start timer   
@@ -43,15 +43,11 @@ function startTimer() {
 
         if((secondsLeft === 0) || (currectQuesIndex === questions.length -1)){
             clearInterval(timeInterval);
-            sendMessage();
         }
        
     },1000);
 }
 
-function sendMessage() {
-    timeEl.textContent = "0";
-}
 
 
 function startQuiz () { 
@@ -112,55 +108,24 @@ function optionClicked(event) {
 
 function endQuiz(){
      // hide question page , show new ending enq quiz
-     landingContainer.classList.add("hidden");
      questionContainer.classList.add("hidden");
      endingContainer.classList.remove("hidden");
 
-     renderedLastRegistered();
-     displayInitialSubmission();
+
+     //put the time remaining = the score
+     if (secondsLeft >= 0) {
+        var timeRemaining =secondsLeft;
+        var createP2 = document.createElement("p");
+        clearInterval(timeRemaining);
+        createP2.textContent = "Your final score is" + timeRemaining;
+        questionContainer.appendChild(createP2);
+     }
+
 }
 
-var lastInitials;
 
-function renderedLastRegistered (){
-    var initials =localStorage.getItem("initials");
-
-    if (!initials) {
-        return;
-    }
-
-    userInitials.textContent= initials;
-}
-
-function displayInitialSubmission(){
-    endingContainer.innerHTML =''
-    var endScore = document.createElement('p');
-    //show score?? 
-
-    
-  submitContainer.addEventListener("click" ,function(event){
-    event.preventDefault();
-
-    var initials= document.getElementById("initials").value;
-// must type initials or else - message
-    if (initials === "") {
-        prompt("error","Please enter your initials");
-    } else {
-           prompt("Woohoo", "Saved succesfully");
-
-            lastInitials=initials;
-            
-            localStorage.setItem("initials",initials);
-            renderedLastRegistered();
-    
-    }
-});
+//local storage save iniitials to highscore list?
      
-
-}
-
-
-
 
 
 
