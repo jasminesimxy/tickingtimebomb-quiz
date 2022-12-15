@@ -4,6 +4,8 @@ var landingContainer = document.getElementById("landing");
 var timeEl = document.getElementById("time");
 var endingContainer = document.getElementById("endpage");
 var submitContainer = document.getElementById("submit");
+var initialsInput =document.getElementById("initials");
+var scoreInput = document.getElementById("score");
 
 //questions with options
 var questions = [
@@ -124,16 +126,30 @@ function endQuiz(){
 
 //local storage 
 // 
-const scordArr = ///JSON. relocalStorage.getItem("scoreHistory")
-scordArr = []; //if statement..
 
-scordArr.push({lastInitials:"", score:""})
-
-localStorage.setItem("scoreHistory", JSON.stringify(arr))
+submitContainer.addEventListener("click", function(event) {
+    event.preventDefault();
+});
 
 
+var scoreHistory = [
+        initialsArr = initialsInput.value,
+        scoreArr = scoreInput.value
+];
+
+localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
 
+function renderLastUserInput(){
+    var UserInput =JSON.parse(localStorage.getItem("scoreHistory"));
+    if (UserInput != null ) {
+        initialsInput.innerHTML = UserInput.initialsArr;
+        scoresInput.innerHTML =UserInput.scoreArr;
+    }
+    else { // if user is the first user to submit initials then this would happen
+        scoreHistory=[]; 
+    }};
 
-
+    
 document.getElementById("startQuiz").addEventListener('click', startQuiz)
+
