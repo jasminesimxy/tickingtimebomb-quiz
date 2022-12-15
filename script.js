@@ -100,6 +100,7 @@ function optionClicked(event) {
         currectQuesIndex++;
         displayQuestion()
     } else {
+        timeEl.textContent ="0";
         endQuiz();
     }
     
@@ -115,10 +116,10 @@ function endQuiz(){
      //put the time remaining = the score
      if (secondsLeft >= 0) {
         var timeRemaining =secondsLeft;
-        var createP2 = document.createElement("p");
+        var createP2 = document.getElementById("score");
         clearInterval(timeRemaining);
-        createP2.textContent = "Your final score is" + timeRemaining;
-        questionContainer.appendChild(createP2);
+        createP2.textContent = timeRemaining;
+
      }
 
 }
