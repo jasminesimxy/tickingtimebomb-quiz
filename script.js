@@ -119,14 +119,13 @@ function endQuiz(){
         var createP2 = document.getElementById("score");
         clearInterval(timeRemaining);
         createP2.textContent = timeRemaining;
-
      }
-
 }
 
 
 //local storage save iniitials to highscore list?
-     
+     document.getElementById("initials").innerHTML = " "; // to clear textContent
+     document.getElementById("initials").innerHTML = " "<div></div> //to append
 
 
 
