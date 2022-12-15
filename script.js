@@ -134,10 +134,11 @@ submitContainer.addEventListener("click", function(event) {
 
 var scoreKeys = {
     initials: initialsInput.value,
-    score: scoreInput.value,
+    score: 0
 };
+
 scoreHistory.push(scoreKeys)//push scorekeys object into scoreHistory array 
-localStorage.setItem("scoreHistory", scoreHistory);
+localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 });
 
 console.log(scoreHistory);
@@ -152,8 +153,8 @@ function renderLastUserInput(){
     else { // if user is the first user to submit initials then this would happen
         scoreHistory=[]; 
     }};
-
-
     
 document.getElementById("startQuiz").addEventListener('click', startQuiz)
 
+
+// for loop the scorehistory array - show screen
