@@ -136,8 +136,8 @@ var scoreKeys = {
     initials: initialsInput.value,
     score: scoreInput.value,
 };
-
-localStorage.setItem("scoreHistory", scoreKeys);
+scoreHistory.push(scoreKeys)//push scorekeys object into scoreHistory array 
+localStorage.setItem("scoreHistory", scoreHistory);
 });
 
  
