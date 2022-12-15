@@ -139,7 +139,11 @@ localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 });
 
 
+// function clickSubmit () ??
 
+
+
+// store history in local storage??
 function renderLastUserInput(){
     var UserInput =JSON.parse(localStorage.getItem("scoreHistory"));
     if (UserInput != null ) {
@@ -149,6 +153,10 @@ function renderLastUserInput(){
     else { // if user is the first user to submit initials then this would happen
         scoreHistory=[]; 
     }};
+
+
+
+
 
     
 document.getElementById("startQuiz").addEventListener('click', startQuiz)
