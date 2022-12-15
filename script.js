@@ -7,7 +7,11 @@ var submitContainer = document.getElementById("submit");
 var initialsInput =document.getElementById("initials");
 var scoreInput = document.getElementById("score");
 
+var scoreContainer = document.getElementById("highscorePage");
 var scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || [];
+
+var backButton =document.getElementById("backbutton");
+var clearButton = document.getElementById("clearhighscore");
 
 //questions with options
 var questions = [
@@ -112,10 +116,9 @@ function optionClicked(event) {
 
 
 function endQuiz(){
-     // hide question page , show new ending enq quiz
+     // hide question page , show new ending page quiz
      questionContainer.classList.add("hidden");
      endingContainer.classList.remove("hidden");
-
 
      //put the time remaining = the score
      if (secondsLeft >= 0) {
@@ -124,6 +127,7 @@ function endQuiz(){
         clearInterval(timeRemaining);
         createP2.textContent = timeRemaining;
      }
+     
 }
 
 //local storage 
@@ -152,9 +156,32 @@ function renderLastUserInput(){
     }
     else { // if user is the first user to submit initials then this would happen
         scoreHistory=[]; 
-    }};
+    }
+
+    // for loop to push the scorehistory array - show screen ??
+    for (var i = 0; i < scoreHistory; i++) {
+        scoreHistory.push("scoreKeys");
+    }
+};
     
+
+
+
+//event listener highscore 
+function displayHighScore () {
+    //hide question and ending , show highscore page when click
+
+    questionContainer.classList.add("hidden");
+    endingContainer.classList.add("hidden");
+    scoreContainer.classList.remove("hidden")
+
+    //high score visible
+//create dynabmic table -google-based on data
+//retrieve data frmo local storage 
+
+    backButton.addEventListener('click', startQuiz)
+
+};
+
 document.getElementById("startQuiz").addEventListener('click', startQuiz)
-
-
-// for loop the scorehistory array - show screen
+document.getElementById("highscorePage").addEventListener('click', displayHighScore)
