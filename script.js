@@ -7,6 +7,8 @@ var submitContainer = document.getElementById("submit");
 var initialsInput =document.getElementById("initials");
 var scoreInput = document.getElementById("score");
 
+var scoreHistory = localStorage.getItem("scoreHistory") || [];
+
 //questions with options
 var questions = [
     {
@@ -125,21 +127,18 @@ function endQuiz(){
 }
 
 //local storage 
-// 
+
 
 submitContainer.addEventListener("click", function(event) {
     event.preventDefault();
 
 var scoreHistory = {
     initials: initialsInput.value,
-    score: scoreInput.value
+    score: scoreInput.value,
 };
 
 localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 });
-
-
-// function clickSubmit () ??
 
 
 
@@ -148,14 +147,11 @@ function renderLastUserInput(){
     var UserInput =JSON.parse(localStorage.getItem("scoreHistory"));
     if (UserInput != null ) {
         initialsInput.innerHTML = UserInput.initials;
-        scoresInput.innerHTML =UserInput.score;
+        scoreInput.innerHTML =UserInput.score;
     }
     else { // if user is the first user to submit initials then this would happen
         scoreHistory=[]; 
     }};
-
-
-
 
 
     
