@@ -2,7 +2,7 @@
     display: none;
 }
 
-*{
+* {
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
@@ -40,19 +40,18 @@ body {
     max-height: 200px;
     padding-top: 100px;
     align-items: center;
-   
+    color: hotpink;
+
 }
 
 #landing h1 {
-    padding: 20px;
     font-size: 40px;
-    color: hotpink;
+
 }
 
 #landing p {
  font-size: 20px;
- color: rgb(239, 126, 183);
- flex-wrap: wrap ;
+ padding: 20px;
 }
 
 
