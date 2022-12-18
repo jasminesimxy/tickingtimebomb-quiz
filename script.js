@@ -57,7 +57,6 @@ function startTimer() {
 }
 
 
-
 function startQuiz () { 
     // hide landing page
     landingContainer.classList.add("hidden");
@@ -130,7 +129,7 @@ function endQuiz(){
      
 }
 
-//local storage 
+//local storage  -saving
 
 
 submitContainer.addEventListener("click", function(event) {
@@ -138,7 +137,7 @@ submitContainer.addEventListener("click", function(event) {
 
 var scoreKeys = {
     initials: initialsInput.value,
-    score: 0
+    score: secondsLeft
 };
 
 scoreHistory.push(scoreKeys)//push scorekeys object into scoreHistory array 
@@ -148,40 +147,48 @@ localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 console.log(scoreHistory);
 
 // store history in local storage??
-function renderLastUserInput(){
-    var UserInput =JSON.parse(scoreHistory);
-    if (UserInput != null ) {
-        initialsInput.innerHTML = UserInput.initials;
-        scoreInput.innerHTML =UserInput.score;
-    }
-    else { // if user is the first user to submit initials then this would happen
-        scoreHistory=[]; 
-    }
+// function renderLastUserInput() {
+//     var UserInput =scoreHistory;
+//     if (UserInput != null ) {
+//         initialsInput.innerHTML = UserInput.initials;
+//         scoreInput.innerHTML =UserInput.score;
+//     }
+//     else { // if user is the first user to submit initials then this would happen
+//         scoreHistory=[]; 
+//     }
 
-    // for loop to push the scorehistory array - show screen ??
-    for (var i = 0; i < scoreHistory; i++) {
-        scoreHistory.push("scoreKeys");
-    }
-};
+//     // for loop to push the scorehistory array - show screen ??
+//     for (var i = 0; i < scoreHistory; i++) {
+//         scoreHistory.push("scoreKeys");
+//     }
+// };
     
-
-
-
 //event listener highscore 
-function displayHighScore () {
-    //hide question and ending , show highscore page when click
+// function displayHighScore () {
+//     //hide question and ending , show highscore page when click
 
-    questionContainer.classList.add("hidden");
-    endingContainer.classList.add("hidden");
-    scoreContainer.classList.remove("hidden")
+//     questionContainer.classList.add("hidden");
+//     endingContainer.classList.add("hidden");
+//     scoreContainer.classList.remove("hidden");
 
-    //high score visible
-//create dynabmic table -google-based on data
-//retrieve data frmo local storage 
 
-    backButton.addEventListener('click', startQuiz)
+//     backButton.addEventListener('click', startQuiz)
+//     clearButton.localStorage.removeItem('renderLastUserInput');
 
-};
+// //high score visible
+// //create dynabmic table -google-based on data
+// //retrieve data from local storage 
 
-document.getElementById("startQuiz").addEventListener('click', startQuiz)
-document.getElementById("highscorePage").addEventListener('click', displayHighScore)
+// };
+
+// function init(){
+//     // renderLastUserInput();
+// }
+// init();
+
+
+
+document.getElementById("startQuiz").addEventListener('click', startQuiz);
+
+
+
