@@ -37,7 +37,6 @@ var questions = [
         correctAns: 'option1'
     }
 ]
- 
 var currectQuesIndex;
 
 var secondsLeft = 90;
@@ -59,8 +58,8 @@ function startTimer() {
 
 function startQuiz () { 
     // hide landing page
-    landingContainer.classList.add("hidden");
-    questionContainer.classList.remove("hidden");
+    landingContainer.style.display="none";
+    questionContainer.style.display="block";
     // show first question
     startTimer()
     currectQuesIndex = 0;
@@ -116,8 +115,8 @@ function optionClicked(event) {
 
 function endQuiz(){
      // hide question page , show new ending page quiz
-     questionContainer.classList.add("hidden");
-     endingContainer.classList.remove("hidden");
+     questionContainer.style.display="none";
+     endingContainer.style.display= "block";
 
      //put the time remaining = the score
      if (secondsLeft >= 0) {
