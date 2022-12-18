@@ -23,14 +23,14 @@ header{
 header a,
 header p {
 padding: 20px;
-color: hotpink;
+color: #fc1750;
 font-size: 40px;
 }
 
 
 body {
     font-family: sans-serif;
-    background-color: white
+    background-color: #f5c463;
 }
 
 #landing {
@@ -39,7 +39,7 @@ body {
     max-height: 200px;
     padding-top: 100px;
     align-items: center;
-    color: hotpink;
+    color: #fc1750;
 
 }
 
@@ -55,8 +55,8 @@ body {
 
 
 #startQuiz{
-    background: yellow; 
-    color: hotpink;
+    background: white; 
+    color: #fc1750;
     padding: 10px;
     max-height: 90px;
     text-align: center;
@@ -68,13 +68,13 @@ body {
 
 #startQuiz:hover {
     transition: 0.7s;
-    color:black;
+    color:rgb(6, 242, 250);
   }
 
 #startQuiz:focus {
     outline-color: transparent;
     outline-style:solid;
-    box-shadow: 0 0 0 4px purple;
+    box-shadow: 0 0 0 4px rgb(239, 19, 239);
 }
 
 

@@ -67,10 +67,11 @@ function startQuiz () {
 }
 
 function displayQuestion() {
-    questionContainer.innerHTML = ''
+    questionContainer.innerHTML = '';
     // display question title
     var title = document.createElement('h2')
-    title.textContent = questions[currectQuesIndex].title
+    title.textContent = questions[currectQuesIndex].title 
+    title.setAttribute('style' , 'font-size: 30px; color:#fc1750;font-weight: bolder; margin-left; padding-left: 40px;padding-bottom:40px;') 
     // display question options
     questionContainer.appendChild(title)
  
@@ -83,7 +84,7 @@ function displayQuestion() {
         optionButton.addEventListener('click', optionClicked)
         questionContainer.appendChild(optionButton)
 
-        optionButton.setAttribute('style','background-color:#FF69B4; color: white; padding: 5px; margin-left')
+        optionButton.setAttribute('style','background-color:#fc1750; color: white; padding: 5px; margin:25px; padding bottom:40px; ')
     }
 }
 
