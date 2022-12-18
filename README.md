@@ -18,7 +18,7 @@ The required step to install my project is through clicking on the links attache
 Deployed application link : https://jasminesimxy.github.io/tickingtimebomb-quiz/
 Github Repo URL link : https://github.com/jasminesimxy/tickingtimebomb-quiz
 
-My repository is called Horiseon-C1 and it contains all the codes and file needed to create the website (test: https://jasminesimxy.github.io/tickingtimebomb-quiz/)
+My repository is called Tickingtimebomb-quiz and it contains all the codes and file needed to create the website (test: https://jasminesimxy.github.io/tickingtimebomb-quiz/)
 
 ## Usage
 
